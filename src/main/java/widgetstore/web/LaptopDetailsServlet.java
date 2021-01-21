@@ -1,6 +1,5 @@
 package widgetstore.web;
 
-import desserts.*;
 import ecommerce.LaptopEntity;
 import hibernate.HibernateUtils;
 import org.hibernate.Session;
@@ -17,15 +16,9 @@ import java.util.List;
 
 public class LaptopDetailsServlet extends HttpServlet {
 
-    GenericDAO<DrinkDTO> drinkDAO;
+
 
     Session session;
-
-    Long lastID;
-
-    public LaptopDetailsServlet() {
-        drinkDAO = new DrinkDAOImpl();
-    }
 
     public void init() {
         session = HibernateUtils.buildSessionFactory().openSession();
@@ -56,11 +49,14 @@ public class LaptopDetailsServlet extends HttpServlet {
         }
         </style>
         */
+        //fancy
         out.println("<style>table, th, td { border: 1px solid black; border-collapse: collapse; text-align: center; } </style>");
         out.println("<body>");
         out.println("Available Laptops: ");
         out.println("<table>");
         out.println("<tr><th>Laptop_ID</th><th>Laptop_Name</th></tr>");
+
+        // loop for each row
         for (LaptopEntity laptop : laptops) {
             //out.println("<br>");
 
@@ -68,6 +64,7 @@ public class LaptopDetailsServlet extends HttpServlet {
             out.println("<tr><td>" + laptop.getId() + "</td><td>" + laptop.getName() + "</td></tr>");
 
         }
+        //fancy
         out.println("</table>");
         out.println("</body>");
         out.println("</form>");
@@ -88,6 +85,7 @@ public class LaptopDetailsServlet extends HttpServlet {
 
 
             if (laptopEntity != null) {
+
                 out.println("<form action='' 'method=POST'>");
                 out.println("<style>table, th, td { border: 1px solid black; border-collapse: collapse; text-align: center; } </style>");
                 out.println("<body>");
@@ -105,6 +103,7 @@ public class LaptopDetailsServlet extends HttpServlet {
             }
 
         }catch (NumberFormatException e) {
+
             response.sendRedirect("laptop");
         }
 
