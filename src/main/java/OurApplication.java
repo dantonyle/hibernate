@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import robot.RobotEntity;
+
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -35,14 +35,14 @@ public class OurApplication {
 
 
             /* Insert some laptops */
-            /*
+
             for (int i = 0; i <= 10; i++) {
                 LaptopEntity laptop = new LaptopEntity();
                 laptop.setName("SomeBook Series " + (i + 1));
                 laptop.setPrice((100F * i) + 500F);
                 hibernateSession.save(laptop);
             }
-            */
+
 
 
             hibernateSession.getTransaction().commit();
